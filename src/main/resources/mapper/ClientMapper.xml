@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vcd.vcd115.mapper.ClientMapper">
+    <select id="findById" resultType="com.vcd.vcd115.entity.Client">
+        select * from vcd.client where Cno = #{Cno};
+    </select>
+    <insert id="insertClient" parameterType="com.vcd.vcd115.entity.Client">
+        insert into vcd.client(Cno, Cname, Cph) values (#{Client.Cno},#{Client.Cname},#{Client.Cph});
+    </insert>
+    <delete id="deleteById" parameterType="string">
+        delete from vcd.client where Cno = #{Cno};
+    </delete>
+</mapper>

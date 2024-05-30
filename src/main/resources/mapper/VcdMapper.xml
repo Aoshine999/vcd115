@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vcd.vcd115.mapper.VcdMapper">
+    <select id="findAll" resultType="com.vcd.vcd115.entity.Vcd">
+        select * from vcd.vcd;
+    </select>
+
+    <select id="findById" resultType="com.vcd.vcd115.entity.Vcd">
+        select * from vcd.vcd where Vno = #{Vno};
+    </select>
+
+    <select id="findByType" resultType="com.vcd.vcd115.entity.Vcd">
+        select * from vcd.vcd where VType = #{VType};
+    </select>
+
+    <select id="updateById" resultType="Boolean">
+        update vcd.vcd set
+        Vname = #{vcd.Vname},
+        Author = #{vcd.Author},
+        Price = #{vcd.Price},
+        amount = #{vcd.amount},
+        VType = #{vcd.VType}
+        where Vno = #{vcd.Vno};
+    </select>
+
+    <select id="deleteById" resultType="Boolean">
+        delete from vcd.vcd where Vno = #{Vno};
+    </select>
+
+    <select id="insertVcd" resultType="Boolean">
+        insert into vcd.vcd(Vno,Vname,Author,Price,VType,amount) values (#{vcd.Vno},#{vcd.Vname},#{vcd.Author},#{vcd.Price},#{vcd.VType},#{vcd.amount});
+    </select>
+</mapper>

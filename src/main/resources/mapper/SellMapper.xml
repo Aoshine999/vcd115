@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vcd.vcd115.mapper.SellMapper">
+    <select id="findBySearch" resultType="com.vcd.vcd115.entity.Sell">
+        select * from vcd.sell
+        <where>
+            <if test="Sell.Vno != null">
+                Vno = #{Sell.Vno}
+            </if>
+            <if test="Sell.Cno != null">
+                AND Cno = #{Sell.Cno}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertBuyer" parameterType="com.vcd.vcd115.entity.Sell">
+        insert into vcd.sell(Vno, Cno, Stime, Samount)
+        values (#{Sell.Vno},#{Sell.Cno},#{Sell.Stime,jdbcType=DATE},#{Sell.Samount});
+    </insert>
+</mapper>

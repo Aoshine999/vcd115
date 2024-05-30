@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.vcd.vcd115.mapper.StockMapper">
+    <select id="findById" resultType="com.vcd.vcd115.entity.Stock">
+        select * from vcd.stock where Vno = #{Vno};
+    </select>
+
+    <select id="insertStock" resultType="Boolean">
+        insert into vcd.stock(Vno, Samount, Stime) values (#{stock.Vno},#{stock.Samount},#{stock.Stime});
+    </select>
+
+    <select id="deleteById"  resultType="Boolean">
+        delete from vcd.stock where Vno = #{Vno};
+    </select>
+
+</mapper>
