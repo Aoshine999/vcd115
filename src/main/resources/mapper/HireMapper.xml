@@ -17,4 +17,17 @@
         Hstatus = $(Hire.Hstatus? 'borrowed' : 'returned')
         where Vno = #{Hire.Vno} and Cno = #{Hire.Cno};
     </update>
+
+    <select id="findAll" resultType="com.vcd.vcd115.entity.Hire">
+        select
+            Vno,
+            Cno,
+            Hprice,
+            Hamount,
+            Htime,
+            Rtime,
+            case when Hstatus = 'borrowed' then true else false end as status
+        from
+            vcd.hire
+    </select>
 </mapper>

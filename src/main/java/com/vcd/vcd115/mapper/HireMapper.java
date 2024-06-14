@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface HireMapper {
 
-    @Select("select * from vcd.hire")
+
     public List<Hire> findAll();
 
 

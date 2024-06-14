@@ -29,5 +29,4 @@ public class HireController {
        all.stream().forEach(t -> System.out.println(t));
        return all;
     }
-
 }
