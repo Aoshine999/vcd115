@@ -17,9 +17,19 @@ public class HireController {
 
     @GetMapping("/insertHirer")
     public Boolean insertHirer(@RequestBody Hire hirer) {
-        System.out.println("插入Hire中 " );
-
-        return hireService.insertHirer(hirer);
+        System.out.println("插入Hire中");
+        try{
+            Boolean resp = hireService.insertHirer(hirer);
+            if(resp){
+                System.out.println("----------------------------------插入成功");
+            }
+            return resp;
+        }
+        catch (Exception exception){
+            System.out.println("插入失败");
+            exception.printStackTrace();
+            return false;
+        }
     }
 
     @GetMapping("/findAll")

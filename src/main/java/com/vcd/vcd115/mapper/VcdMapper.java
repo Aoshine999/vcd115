@@ -26,6 +26,4 @@ public interface VcdMapper {
     @Select("select * from vcd.vcd where Vno = #{Vno}")
     public Vcd findByIdT(String vno);
 
-
-
 }
